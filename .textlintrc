@@ -1,0 +1,34 @@
+{
+  "plugins": ["latex2e"],
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+    "preset-ja-engineering-paper": {
+      "unify-kuten-and-touten": false
+    },
+    "preset-ja-spacing": {
+        "ja-space-between-half-and-full-width": {
+            "space": "always",
+            "lintStyledNode": true
+        }
+    },
+    "preset-ja-technical-writing": {
+      "ja-no-mixed-period": {
+        "periodMark": "。"
+      },
+      "max-kanji-continuous-len": {
+        "max": 8
+      }
+    },
+    "preset-japanese": true,
+    "preset-jtf-style": true,
+
+    "prh": {
+        "rulePaths" :["node_modules\\prh\\prh-rules\\media\\WEB+DB_PRESS.yml"]
+    }
+
+
+    
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "textlint writing_space/*/*.tex",
+    "fix": "textlint --fix writing_space/*/*.tex",
+    "lint-style": "textlint -f checkstyle writing_space/*/*.tex"
+  },
+  "dependencies": {
+    "prh": "^5.4.4",
+    "textlint": "^12.1.0",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-plugin-latex2e": "^1.1.4",
+    "textlint-rule-preset-ja-engineering-paper": "^1.0.3",
+    "textlint-rule-preset-ja-spacing": "^2.2.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-preset-japanese": "^7.0.0",
+    "textlint-rule-preset-jtf-style": "^2.3.12",
+    "textlint-rule-prh": "^5.3.0"
+  }
+}

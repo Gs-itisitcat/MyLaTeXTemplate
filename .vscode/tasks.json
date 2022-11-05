@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Convert Markdonw to LaTeX with pandoc",
+			"command": "pandoc",
+			"args": [
+				"--top-level-division=section",
+				"--filter=pandoc-crossref",
+				"--from=markdown+hard_line_breaks",
+				"-M \"crossrefYaml=${workspaceFolder}\\config.yml\"",
+				"${file}",
+				"--output=${fileDirname}\\${fileBasenameNoExtension}_conv.tex"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

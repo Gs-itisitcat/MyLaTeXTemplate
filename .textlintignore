@@ -1,0 +1,6 @@
+.gitignore
+.textlintignore
+.latexmkrc
+./package.json
+./package-lock.json
+./README.md
