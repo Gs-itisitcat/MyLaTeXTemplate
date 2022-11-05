@@ -1,0 +1,70 @@
+\documentclass[uplatex, 11pt, a4paper, titlepage]{jsarticle}
+%
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{here}
+\usepackage[
+    dvipdfmx,
+    colorlinks=true,
+    urlcolor=red,
+    linkcolor=blue,
+    setpagesize=false
+]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{subfiles}
+
+\graphicspath{{./img/}}
+%
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{39\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.5in}
+\setlength{\headsep}{0pt}
+
+\pagestyle{fancy}
+\rhead{\hyperlink{context}{目次}}
+\lhead{\rightmark}
+\cfoot{\thepage}
+
+\lfoot{}
+
+% subsubsectionまで目次に表示
+\setcounter{tocdepth}{3}
+
+\title{Sample}
+\author{佐藤太郎}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\hypertarget{context}
+\tableofcontents
+\clearpage
+%
+%
+\subfile{./sec/sec1.tex}
+
+\newpage
+
+\bibliographystyle{jplain}
+\bibliography{reference.bib}
+        
+        
+        
+        
+        
+        
+        
+
+
+%
+%
+\end{document}
