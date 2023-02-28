@@ -8,7 +8,7 @@
 			"args": [
 				"--top-level-division=section",
 				"--filter=pandoc-crossref",
-				"--from=markdown+hard_line_breaks",
+				// "--from=markdown+hard_line_breaks",
 				"-M \"crossrefYaml=${workspaceFolder}\\config.yml\"",
 				"${file}",
 				"--output=${fileDirname}\\${fileBasenameNoExtension}_conv.tex"
