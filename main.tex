@@ -34,11 +34,18 @@
 % \setlength{\voffset}{-0.5in}
 % \setlength{\headsep}{0pt}
 
+% For fancyhdr warning
+% \headheight is too small (10.0pt):
+% (fancyhdr)	Make it at least 17.0pt, for example:
+% (fancyhdr)	\setlength{\headheight}{17.0pt}.
+% (fancyhdr)	You might also make \topmargin smaller to compensate:
+% (fancyhdr)	\addtolength{\topmargin}{-7.0pt}.
+\setlength{\headheight}{17.0pt}
+
 \pagestyle{fancy}
 \rhead{\hyperlink{context}{目次}}
 \lhead{\rightmark}
 \cfoot{\thepage}
-
 \lfoot{}
 
 % subsubsectionまで目次に表示
