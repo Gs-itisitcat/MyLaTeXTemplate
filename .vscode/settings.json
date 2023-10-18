@@ -1,0 +1,134 @@
+{
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+
+  "latex-workshop.latex.recipes": [
+
+      {
+          "name": "latexmk",
+          "tools": [
+              "latexmk"
+          ]
+      },
+      {
+          "name": "ptex2pdf",
+          "tools": [
+              "ptex2pdf"
+          ]
+      },
+      {
+          "name": "latexmk (latexmkrc)",
+          "tools": [
+              "latexmk_rconly"
+          ]
+      },
+      {
+          "name": "latexmk (lualatex)",
+          "tools": [
+              "lualatexmk"
+          ]
+      }
+  ],
+  "latex-workshop.latex.tools": [
+      {
+          "name": "latexmk",
+          "command": "latexmk",
+          "args": [
+              // "-synctex=1",
+              "-interaction=nonstopmode",
+              // "-halt-on-error",
+              "-pdfdvi",
+              // "-file-line-error",
+              "-outdir=%OUTDIR%",
+              "%DOCFILE%"
+          ],
+          "env": {}
+      },
+      {
+          "name": "ptex2pdf",
+          "command": "ptex2pdf",
+          "args": [
+              "-l",
+              "-ot",
+              "kanji=utf8 -synctex=1",
+              "-ot",
+              "-interaction=nonstopmode",
+              "-ot",
+              "-halt-on-error",
+              "-ot",
+              "-file-line-error",
+              "%DOCFILE%"
+          ],
+          "env": {}
+      },
+      {
+          "name": "lualatexmk",
+          "command": "latexmk",
+          "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-lualatex",
+              "-halt-on-error",
+              "-outdir=%OUTDIR%",
+              "%DOCFILE%"
+          ],
+          "env": {}
+      },
+      {
+          "name": "latexmk_rconly",
+          "command": "latexmk",
+          "args": [
+              "%DOCFILE%"
+          ],
+          "env": {}
+      }
+  ],
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.nav",
+    "*.vrb",
+    "*.dvi",
+    "%DOC%.txt"
+  ],
+  "latex-workshop.linting.chktex.enabled": true,
+  "latex-workshop.linting.lacheck.enabled": true,
+  "latex-workshop.linting.chktex.exec.args": [
+      "-n22",
+      "-n30",
+      "-n19",
+      "-e16",
+      "-q",
+      "-n3",
+      "-n2"
+  ],
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.hover.preview.mathjax.extensions": [
+    "physics",
+    "cases",
+    "braket"
+  ],
+  "latex-workshop.latex.clean.method": "glob",
+}
