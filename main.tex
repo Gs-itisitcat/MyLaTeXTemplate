@@ -22,11 +22,42 @@
 \usepackage{pxjahyper}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{float}
 \usepackage{tikz}
 \usepackage{subfiles}
+\usepackage{xr}
+\externaldocument[M-]{\subfix{sample}}
+
+\usepackage{listings}
+\usepackage{plistings}
+\definecolor{OliveGreen}{rgb}{0.0,0.6,0.0}
+\definecolor{Orenge}{rgb}{0.89,0.55,0}
+\definecolor{SkyBlue}{rgb}{0.28, 0.28, 0.95}
+\lstset{language={C}, % 言語の指定
+    basicstyle={\ttfamily},
+    identifierstyle={\small},
+    commentstyle={\smallitshape},
+    keywordstyle={\small\bfseries},
+    ndkeywordstyle={\small},
+    stringstyle={\small\ttfamily},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0zw,
+    xleftmargin=3zw,
+    numberstyle={\scriptsize},
+    stepnumber=1,
+    numbersep=1zw,
+    lineskip=-0.5ex,
+    keywordstyle={\color{SkyBlue}},     %キーワード(int, ifなど)の書体指定
+    commentstyle={\color{OliveGreen}},  %注釈の書体
+    stringstyle=\color{Orenge}          %文字列
+}
+
 \numberwithin{equation}{section}
 
-\graphicspath{{./img/}}
+\graphicspath{{subfix{img/}}}
 %
 % \setlength{\textwidth}{\fullwidth}
 % \setlength{\textheight}{39\baselineskip}

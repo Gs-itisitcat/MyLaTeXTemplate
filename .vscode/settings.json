@@ -1,89 +1,110 @@
 {
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "[tex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+  },
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+  },
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": false,
   "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.latex.autoClean.run": "onBuilt",
-
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build/%RELATIVE_DIR%/",
   "latex-workshop.latex.recipes": [
-
-      {
-          "name": "latexmk",
-          "tools": [
-              "latexmk"
-          ]
-      },
-      {
-          "name": "ptex2pdf",
-          "tools": [
-              "ptex2pdf"
-          ]
-      },
-      {
-          "name": "latexmk (latexmkrc)",
-          "tools": [
-              "latexmk_rconly"
-          ]
-      },
-      {
-          "name": "latexmk (lualatex)",
-          "tools": [
-              "lualatexmk"
-          ]
-      }
+    {
+      "name": "latexmk",
+      "tools": [
+        "latexmk"
+      ]
+    },
+    {
+      "name": "ptex2pdf",
+      "tools": [
+        "ptex2pdf"
+      ]
+    },
+    {
+      "name": "latexmk (latexmkrc)",
+      "tools": [
+        "latexmk_rconly"
+      ]
+    },
+    {
+      "name": "latexmk (lualatex)",
+      "tools": [
+        "lualatexmk"
+      ]
+    }
   ],
   "latex-workshop.latex.tools": [
-      {
-          "name": "latexmk",
-          "command": "latexmk",
-          "args": [
-              // "-synctex=1",
-              "-interaction=nonstopmode",
-              // "-halt-on-error",
-              "-pdfdvi",
-              // "-file-line-error",
-              "-outdir=%OUTDIR%",
-              "%DOCFILE%"
-          ],
-          "env": {}
-      },
-      {
-          "name": "ptex2pdf",
-          "command": "ptex2pdf",
-          "args": [
-              "-l",
-              "-ot",
-              "kanji=utf8 -synctex=1",
-              "-ot",
-              "-interaction=nonstopmode",
-              "-ot",
-              "-halt-on-error",
-              "-ot",
-              "-file-line-error",
-              "%DOCFILE%"
-          ],
-          "env": {}
-      },
-      {
-          "name": "lualatexmk",
-          "command": "latexmk",
-          "args": [
-              "-synctex=1",
-              "-interaction=nonstopmode",
-              "-file-line-error",
-              "-lualatex",
-              "-halt-on-error",
-              "-outdir=%OUTDIR%",
-              "%DOCFILE%"
-          ],
-          "env": {}
-      },
-      {
-          "name": "latexmk_rconly",
-          "command": "latexmk",
-          "args": [
-              "%DOCFILE%"
-          ],
-          "env": {}
-      }
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        // "-synctex=1",
+        "-interaction=nonstopmode",
+        // "-halt-on-error",
+        "-pdfdvi",
+        // "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "-r",
+        "%WORKSPACE_FOLDER%/.latexmkrc",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "ptex2pdf",
+      "command": "ptex2pdf",
+      "args": [
+        "-l",
+        "-ot",
+        "kanji=utf8 -synctex=1",
+        "-ot",
+        "-interaction=nonstopmode",
+        "-ot",
+        "-halt-on-error",
+        "-ot",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-halt-on-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": [
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.clean.method": "command",
+  "latex-workshop.latex.clean.command": "latexmk",
+  "latex-workshop.latex.clean.args": [
+    "-c",
+    "%TEX%",
+    "-outdir=%OUTDIR%",
+    "-r",
+    "%WORKSPACE_FOLDER%/.latexmkrc",
   ],
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
@@ -110,25 +131,21 @@
     "*.nav",
     "*.vrb",
     "*.dvi",
-    "%DOC%.txt"
   ],
   "latex-workshop.linting.chktex.enabled": true,
   "latex-workshop.linting.lacheck.enabled": true,
   "latex-workshop.linting.chktex.exec.args": [
-      "-n22",
-      "-n30",
-      "-n19",
-      "-e16",
-      "-q",
-      "-n3",
-      "-n2"
+    "-n22",
+    "-n30",
+    "-n19",
+    "-e16",
+    "-q",
+    "-n3",
+    "-n2"
   ],
-  "latex-workshop.latex.rootFile.doNotPrompt": true,
-  "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.hover.preview.mathjax.extensions": [
     "physics",
     "cases",
     "braket"
   ],
-  "latex-workshop.latex.clean.method": "glob",
 }
