@@ -1,34 +1,49 @@
 {
-  "plugins": ["latex2e"],
+  "plugins": [
+    "latex2e"
+  ],
   "filters": {
-    "comments": true
+    "comments": true,
+    "allowlist": {
+      "allow": [
+        "/\\\\cite\\{[^}]+\\}/g",
+        "/\\\\ref\\{[^}]+\\}/g",
+        "/\\\\label\\{[^}]+\\}/g",
+        "/\\\\(mathrm|mathbf|mathit)\\{[^}]+\\}/g"
+      ]
+    }
   },
   "rules": {
     "preset-ja-engineering-paper": {
       "unify-kuten-and-touten": false
     },
     "preset-ja-spacing": {
-        "ja-space-between-half-and-full-width": {
-            "space": "always",
-            "lintStyledNode": true
-        }
+      "ja-space-between-half-and-full-width": {
+        "space": "always",
+        "lintStyledNode": true
+      }
     },
     "preset-ja-technical-writing": {
-      "ja-no-mixed-period": {
-        "periodMark": "。"
+      "ja-no-mixed-period": false,
+      "sentence-length": {
+        "max": 140
       },
       "max-kanji-continuous-len": {
         "max": 8
+      },
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "",
+        "preferInBody": "である",
+        "preferInList": "である",
+        "strict": true
       }
     },
     "preset-japanese": true,
     "preset-jtf-style": true,
-
     "prh": {
-        "rulePaths" :["node_modules\\prh\\prh-rules\\media\\WEB+DB_PRESS.yml"]
+      "rulePaths": [
+        "./node_modules/prh/prh-rules/media/techbooster.yml"
+      ]
     }
-
-
-    
   }
 }
