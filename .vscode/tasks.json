@@ -17,6 +17,28 @@
 				"kind": "build",
 				"isDefault": true
 			}
-		}
+		},
+    {
+      "label": "LaTeX: Clean (run clean.command)",
+      "type": "process",
+      "command": "latexmk",
+      "args": [
+        "-outdir=${workspaceFolder}/build/${relativeFileDirname}/",
+        "-auxdir=${workspaceFolder}/build/${relativeFileDirname}/auxiliary/",
+        "-r",
+        "${workspaceFolder}/.latexmkrc",
+        "-c",
+        "${file}"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true,
+        "echo": false
+      }
+    }
 	]
 }

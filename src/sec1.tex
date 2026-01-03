@@ -1,5 +1,6 @@
 \documentclass[../main.tex]{subfiles}
-\RequirePackage{plautopatch}
+
+
 \begin{document}
 
 \hypertarget{sample}{%
@@ -7,4 +8,9 @@
 
 sample\cite{hogebook}
 
+
+\ifSubfilesClassLoaded{
+\bibliographystyle{jplain}
+\bibliography{../reference.bib}
+}{}
 \end{document}

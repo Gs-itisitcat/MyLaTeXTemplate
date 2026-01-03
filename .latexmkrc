@@ -3,10 +3,12 @@
 # LaTeX
 $latex = 'uplatex -synctex=1 -halt-on-error -file-line-error %O %S';
 $max_repeat = 5;
-
+$fls_uses_out_dir = 0;
+$emulate_aux = 1;
 # BibTeX
 $bibtex = 'upbibtex %O %S';
 $biber = 'biber --bblencoding=utf8 -u -U --output_safechars %O %S';
+$bibtex_fudge = 0;
 
 # index
 $makeindex = 'mendex %O -o %D %S';
@@ -17,11 +19,16 @@ sub replacing_dvipdf {
     print "replacing_dvipdf: called with: $basename @args\n";
 
     print "replacing_dvipdf: converting DVI to text\n";
-    system('dvispc', '-a', "$basename.dvi", "$basename.dvi.txt");
+    my $stem = basename($basename);
+    my $auxbase = "$aux_dir/$stem";
+    my $replacing_file = "$auxbase.dvi.replacing";
+    my $replaced_file = "$auxbase.dvi.replaced";
+    my $dvi_file = "$basename.dvi";
+    system('dvispc', '-a', "$dvi_file", "$replacing_file");
 
     print "replacing_dvipdf: replacing punctuation marks\n";
-    open(FROM, "<", "$basename.dvi.txt") or die "Cannot open $basename.dvi.txt: $!";
-    open(TO, ">", "$basename.txt") or die "Cannot open $basename.txt: $!";
+    open(FROM, "<", "$replacing_file") or die "Cannot open $replacing_file: $!";
+    open(TO, ">", "$replaced_file") or die "Cannot open $replaced_file: $!";
     while (<FROM>) {
         s/0x3001/0xff0c/g;
         s/0x3002/0xff0e/g;
@@ -30,14 +37,14 @@ sub replacing_dvipdf {
     close(FROM);
     close(TO);
     # what the above code does is equivalent to the following command:
-    # system('sed', '-i', '-e', 's/0x3001/0xff0c/g', '-e', 's/0x3002/0xff0e/g', "$basename.txt");
-    rdb_add_generated("$basename.dvi.txt", "$basename.txt");
+    # system('sed', '-i', '-e', 's/0x3001/0xff0c/g', '-e', 's/0x3002/0xff0e/g', "$replacing_file");
+    rdb_add_generated("$replacing_file", "$replaced_file");
     print "replacing_dvipdf: converting text to DVI\n";
-    system('dvispc', '-x', "$basename.txt", "$basename.dvi");
+    system('dvispc', '-x', "$replaced_file", "$dvi_file");
     print "replacing_dvipdf: converting DVI to PDF\n";
     return system('dvipdfmx', @args);
 }
-push @generated_exts, "%R.txt", "%R.dvi.txt";
+push @generated_exts, "dvi.replacing", "dvi.replaced";
 
 # DVI / PDF
 # replacing punctuation marks type-set

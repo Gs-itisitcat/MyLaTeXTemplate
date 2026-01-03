@@ -1,0 +1,9 @@
+// Add this keybinding to run the LaTeX clean task
+[
+  {
+    "key": "ctrl+alt+shift+c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "LaTeX: Clean (run clean.command)",
+    "when": "editorTextFocus && editorLangId == latex"
+  }
+]
