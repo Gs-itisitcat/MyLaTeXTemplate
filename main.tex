@@ -2,13 +2,21 @@
 \documentclass[uplatex, dvipdfmx, paper=a4paper, titlepage]{jlreq}
 %
 \usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs=true}
 \usepackage{bm}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
 \usepackage{ascmac}
-\usepackage[italicdiff]{physics}
+\usepackage{physics2}
+\usephysicsmodule{ab}
+\usephysicsmodule{ab.braket}
+\usephysicsmodule{xmat}
+\usepackage{fixdif}
+\usepackage{derivative}
+\usepackage{mathrsfs}
 \usepackage{tensor}
 \usepackage[separate-uncertainty=true]{siunitx}
 \usepackage{here}

@@ -1,0 +1,29 @@
+% MathJax preview compatibility for LaTeX Workshop.
+% Covers physics2 plus derivative/fixdif aliases via MathJax "physics".
+% Requires MathJax "physics" (and "braket" if using bra/ket commands).
+\newcommand{\ab}{\qty}
+\newcommand{\pab}{\pqty}
+\newcommand{\bab}{\bqty}
+\newcommand{\Bab}{\Bqty}
+\newcommand{\vab}{\vqty}
+\newcommand{\Vab}{\norm}
+\newcommand{\aab}[1]{\left\langle #1 \right\rangle}
+
+% fixdif/derivative -> physics equivalents.
+% \renewcommand{\d}{\dd}
+\newcommand{\odif}{\dd}
+\newcommand{\odv}{\dv}
+
+% Simple MathJax-safe fallback for xmat-style commands (optional keys ignored).
+\newcommand{\xmat}[4][]{%
+  \begin{matrix}
+    #2_{1,1} & \cdots & #2_{1,#4} \\
+    \vdots & \ddots & \vdots \\
+    #2_{#3,1} & \cdots & #2_{#3,#4}
+  \end{matrix}%
+}
+\newcommand{\pxmat}[4][]{\left( \xmat[#1]{#2}{#3}{#4} \right)}
+\newcommand{\bxmat}[4][]{\left[ \xmat[#1]{#2}{#3}{#4} \right]}
+\newcommand{\Bxmat}[4][]{\left\{ \xmat[#1]{#2}{#3}{#4} \right\}}
+\newcommand{\vxmat}[4][]{\left| \xmat[#1]{#2}{#3}{#4} \right|}
+\newcommand{\Vxmat}[4][]{\left\Vert \xmat[#1]{#2}{#3}{#4} \right\Vert}

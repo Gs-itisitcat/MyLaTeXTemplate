@@ -138,4 +138,5 @@
     "braket"
   ],
   "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.hover.preview.newcommand.newcommandFile": "tools/mathjax-preview-compat.tex",
 }
